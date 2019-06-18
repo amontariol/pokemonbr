@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "Controleur"
+		},
+		{
+			"path": "Model"
+		},
+		{
+			"path": "Vue"
+		}
+	]
+}
