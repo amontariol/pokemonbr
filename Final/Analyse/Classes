@@ -1,0 +1,84 @@
+Classe
+	nom : Play
+	role:
+Attributs:
+	starters : attribut pour stocker les différents pokémons de départ
+	pokeball : attribut pour stocker une image
+	conn : attribut pour stocker la connexion a la db
+	self.x = position x du joueur sur la map en pixels
+    self.y =position y du joueur sur la map en pixels
+    self.vel = vitesse de déplacement
+    
+    self.tileset = image contenant toutes les parties de la map
+
+    self.level=contient la disposition de la map
+    
+    self.xs=largeur de la map en tuiles
+    self.ys=hauteur de la map en tuiles
+    
+    self.xtj=position x du joueur sur la map en tuiles
+    self.ytj=position y du joueur sur la map en tuiles
+    self.lt=[0,0]
+    self.collision=contient un liste qui détermine si une tuile est traversable ou non
+
+    self.trainers = charge l'image contenant les personnages du jeu
+    
+
+    self.textbox=pygame.image.load("./BattleScene/textbox.png")
+    self.textbox=pygame.transform.scale(self.textbox,(self.textbox.get_width()*2,self.textbox.get_height()*2))
+    self.message=False#Vrai si il y à un message à afficher
+    
+    self.eact=dictionnaire contenant les interaction avec la tuile choisie
+    self.way=initialisation de la direction du personnage du joueur à nulle
+methodes:
+	move:methode utilisée pour gérer les déplacements du joueur
+	hocollision : methode utilisée verifier les collisions
+	pickpokeball : methode pour gerer l'interactiona vec les pokeballs au sol
+
+-------------------------------------------------------------------------------------------------------------------
+
+Classe:
+	nom:createpnj
+	role : instancier des personnages non joueur
+Attributs
+	self.number=num#numéro de l'équipe du PNJ dans la DB
+    self.teamnumber=numero de l'equipe du pnj
+    self.fen=fenetre
+    self.pos=coordonnées du PNJ
+    self.trainer=détermine si je PNJ est un deresseur
+    self.range=détermine la taille du tour que le PNJ décrit
+    self.direction=détermine la direction dans laquelle le pnj est tourné
+    self.ranstate=0
+    self.vit=vitesse de déplacement
+    self.tclass=type du PNJ
+    self.xtp=coordonnée x du PNJ
+    self.ytp=coordonnée y du PNJ
+    self.active=si le PNJ peut ineragir
+methodes:
+	move : methode utilisée pour gérer le mouvement des pnj
+	collisionp : methode pour gérer les collisions du pnj
+	duel : methode utilisée pour gérer le fait de dueler
+	createteam : methode utilisée pour créer l'equipe du pnj
+
+---------------------------------------------------------------------------------------------------------------------
+
+Classe :
+	nom : initfight
+	role : initier les combats
+attributs:
+	self.Pteam=équipe du joueur
+    self.Bteam=pokemon sauvage/équipe du pnj
+    self.wmenu=indique le menu choisi par le joueur
+    self.select=variable tempon contenant le dernier menu survolé par l'utilisateur
+    self.sel=indique la position du sac, si il est en mode soins ou balls
+    self.bsel=indique la position temporaire du sac, si il est en mode soins ou balls
+    self.cc=Vrai si l'utilisateur peut cliquer
+    self.tsoin=Vrai si l'utilisateur veux utiliser un objet de soin
+methodes:
+	fight : methode utilisée pour gérer les combats(le menu)
+	bmenu : methode utilisée pour gerer le fait de cliquer sur des elements du menu
+	bfight: methode utilisée pour gérer le fait d'attaquer dans le menu bataille
+	bgattacks : methode pour gérer l'affichege des attaques
+	bpokemon : methode pour gérér l'interaction avec l'equipe
+	bbag : methode pour gérer l'interaction avec l'equipe
+
